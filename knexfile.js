@@ -5,9 +5,10 @@ module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      database: 'eleven_kings',
+      host: '127.0.0.1',
       user:     'root',
-      password: ''
+      password: '',
+      database: 'eleven_kings',
     },
     migrations: {
       directory: './src/database/migrations',
