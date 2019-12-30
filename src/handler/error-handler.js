@@ -113,3 +113,5 @@ function errorHandler(err, res) {
     });
   }
 }
+
+module.exports = errorHandler;

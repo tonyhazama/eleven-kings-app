@@ -1,9 +1,8 @@
-const { Model } = require('objection');
+const { BaseModel } = require('./BaseModel');
 
-class Product extends Model {
-  static get tableName() {
-    return 'brand';
-  }
+
+class Product extends BaseModel {
+  static get tableName() { return 'product'; }
 
   static get jsonSchema() {
     return {
@@ -19,6 +18,7 @@ class Product extends Model {
       }
     }
   }
+
 }
 
 module.exports = Product;

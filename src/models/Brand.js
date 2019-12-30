@@ -1,19 +1,18 @@
-const { Model } = require('objection');
+const { BaseModel } = require('./BaseModel');
 
-class Brand extends Model {
-  static get tableName() {
-    return 'brand';
-  }
+class Brand extends BaseModel {
+  static get tableName() { return 'brand'; }
 
   static get jsonSchema() {
     return {
       type: 'object',
+      required: ['name', 'foundedDate'],
       properties: {
         id: { type: 'integer' },
-        brandName: { type: 'string' },
-        foundedDate: { type: 'string' },
-        // createdAt: { type: 'string' },
-        // updatedAt: { type: 'number' },
+        name: { type: 'string', minLength: 2, maxLength: 256 },
+        foundedDate: { type: 'date', maxLength: 10},
+        createdAt: { type: 'date' },
+        updatedAt: { type: 'date' },
       }
     }
   }
