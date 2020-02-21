@@ -1,9 +1,16 @@
-var express = require('express');
-var router = express.Router();
+const indexRouter = require('./index.route');
+const usersRouter = require('./users.route');
+const brandRouter = require('./brand.route');
+const productRouter = require('./product.route');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+module.exports = {indexRouter, usersRouter, brandRouter, productRouter};
 
-module.exports = router;
+// const routeHandler = ({ path, callback, method }) => {
+//   router.route(path)[method](async (req, res, next) => {
+//     try {
+//       await callback(req, res, next);
+//     } catch (error) {
+//       next(error);
+//     }
+//   });
+// };

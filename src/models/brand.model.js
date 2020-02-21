@@ -1,6 +1,15 @@
-const { BaseModel } = require('./BaseModel');
+const { BaseModel } = require('./base-model.model');
+const { Model } = require('objection');
 
 class Brand extends BaseModel {
+  static get modifiers() {
+    return {
+      defaultSelects(query) {
+        query.select('id', 'name');
+      }
+    }
+  }
+
   static get tableName() { return 'brand'; }
 
   static get jsonSchema() {
@@ -18,7 +27,7 @@ class Brand extends BaseModel {
   }
 
   static get relationMappings() {
-    const Product = require('./Person');
+    const Product = require('./product.model');
     return {
       brandProducts: {
         relation: Model.HasManyRelation,

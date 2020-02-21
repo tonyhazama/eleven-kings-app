@@ -1,5 +1,7 @@
 const { Model } = require('objection');
 
+Model.knex(knex);
+
 class Person extends Model {
   // Table name is the only required property.
   static get tableName() {
